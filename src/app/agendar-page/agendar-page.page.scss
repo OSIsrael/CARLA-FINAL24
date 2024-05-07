@@ -1,0 +1,144 @@
+ion-content {
+    --border: 1px solid #000;
+  --background: linear-gradient(180deg, #4C7DE6 73.44%, rgba(96, 111, 145, 0.46) 99.99%);
+  display: flex;
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  }
+  ion-text {
+    font-family: Arial, Helvetica, sans-serif;
+    }
+  .enca{
+    display: flex;
+    margin: 10px;
+  }
+  .txt1{
+    color: #FFF;
+
+font-style: italic;
+font-weight: 700;
+line-height: normal;
+position: absolute;
+top: 3%;
+left: 23%;
+font-size: 130%;
+  }
+  .txt2{
+    color: #FFF;
+
+font-style: italic;
+font-weight: 700;
+line-height: normal;
+position: absolute;
+top: 6%;
+left: 23%;
+font-size: 130%;
+  }
+ .perfil{
+   font-size: 400%;
+   position: absolute;
+   right: 5%;
+   top: 2%;
+ }
+ ion-popover{
+  margin: 10px;
+--background: #7657E6;
+--width:65%;
+--height:8%;
+--box-shadow:100%;
+}
+.form-container {
+ 
+    margin: 20px auto; /* Posicionamiento central, puedes ajustar según sea necesario */
+  }
+  
+  .figura{
+    color: #FFF;
+
+font-size: 140%;
+font-style: italic;
+font-weight: 700;
+line-height: normal;
+  }
+  .comando{
+    color: #FFF;
+
+font-size: 140%;
+font-style: italic;
+font-weight: 700;
+line-height: normal;
+  }
+  .hora{
+    color: #FFF;
+
+font-size: 140%;
+font-style: italic;
+font-weight: 700;
+line-height: normal;
+  }
+  ion-datetime {
+    --background: #98b3ee;
+    --background-rgb: #7d92c0;
+    --wheel-highlight-background: #687694;
+    --wheel-fade-background-rgb: #3d4b69;
+  }
+  
+  ion-datetime::part(wheel-item) {
+    color: rgb(255, 255, 255);
+  }
+  
+  ion-datetime::part(wheel-item active) {
+    color: rgb(20, 156, 156);
+  }
+  ion-item {
+    --background: #4C7DE6;
+    --color: #fff;
+  }
+
+
+
+
+.agre{
+    --background: #7657E6;
+    width: 70%;
+    height: 5%;
+   
+    --border-radius: 50px;
+    --border-color: #000;
+    --border-style: solid;
+    --border-width: 6px;
+}
+.re{
+    --background: #ffffff;
+    width: 75px;
+    height: 75px;
+   
+    --border-radius: 50px;
+    --border-color: #000;
+    --border-style: solid;
+    --border-width: 6px;
+}
+.re1{
+   color: #000;
+   font-size: 150%;
+}
+.ta{
+    color: #FFF;
+text-align: center;
+
+font-size: 150%;
+font-style: italic;
+font-weight: 700;
+line-height: normal;
+}
+
+.icf{
+  color: #FFF;
+}
+ion-item{
+  --background:transparent;
+}

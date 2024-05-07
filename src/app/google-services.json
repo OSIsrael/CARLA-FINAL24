@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1051824662806",
+    "project_id": "carlatesis-1d7aa",
+    "storage_bucket": "carlatesis-1d7aa.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1051824662806:android:ed93feff415ee722808837",
+        "android_client_info": {
+          "package_name": "com.carla.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC_xkDPbHF_dtqA0ijUjakOdwSO9ZDydj0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

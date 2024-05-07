@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "carlatesis-1d7aa": {
+      "hosting": {
+        "app": [
+          "carlatesis-1d7aa"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "carlatesis-1d7aa"
+  }
+}
