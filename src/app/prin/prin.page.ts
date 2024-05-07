@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ActionSheetController, NavController, ToastController } from '@ionic/angular';
-import { Storage } from '@ionic/storage-angular'; 
+import { LocalNotifications } from '@capacitor/local-notifications';
+import { ActionSheetController, NavController } from '@ionic/angular';
+import { Storage } from '@ionic/storage-angular';
 import { collection, getDocs, orderBy, query, where } from 'firebase/firestore';
 import { Firestore } from '@angular/fire/firestore';
-import { LocalNotifications } from '@capacitor/local-notifications';
 import gsap from 'gsap';
-import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-prin',
@@ -14,8 +13,8 @@ import { DataService } from '../data.service';
 })
 export class PrinPage implements OnInit {
   usuarioID: string = "";
+
   constructor(
-    private service: DataService,
     private actionSheetCtrl: ActionSheetController,
     private router: NavController,
     private db: Firestore,
@@ -79,32 +78,54 @@ export class PrinPage implements OnInit {
 
   async programarNotificaciones() {
     await LocalNotifications.requestPermissions();
-  
+
     // Obtener la fecha y hora actual
     const now = new Date();
-  
+
     // Iterar sobre las tareas y programar una notificación para cada una si ha llegado el momento adecuado
     this.tareas.forEach(async tarea => {
       const { comando, fecha } = tarea;
-  
+
       // Verificar si la fecha de la tarea es posterior a la fecha actual
       if (fecha > now) {
         // Calcular la diferencia en milisegundos entre la fecha de la tarea y la fecha actual
         const tiempoRestante = fecha.getTime() - now.getTime();
-  
+
         // Programar la notificación solo si el tiempo restante es mayor que cero
         if (tiempoRestante > 0) {
           // Programar la notificación con un retraso igual al tiempo restante
           setTimeout(async () => {
             // Lógica para programar una notificación para el comando dado
+            let image = '';
+            let sound = '';
+            switch (comando) {
+              case 'ir al baño':
+                image = 'ir_al_baño.png';
+                sound = '003.mp3';
+                break;
+              case 'ir a comer':
+                image = 'ir_a_comer.jpg';
+                sound = '004.mp3';
+                break;
+              // Agregar más casos según los comandos que tengas
+              default:
+                // Si no hay una imagen o sonido específico para el comando, usar valores predeterminados o dejar vacío
+                break;
+            }
+
             await LocalNotifications.schedule({
               notifications: [
                 {
                   title: `¡${comando}!`,
                   body: `Hora de ${comando}!`,
                   id: Math.floor(Math.random() * 1000), // ID de notificación único
-                  schedule: { at: new Date() } // Programar la notificación en el momento actual
+                  schedule: { at: new Date() }, // Programar la notificación en el momento actual
+                  attachments: [
+                    { id: 'image', url: `assets/images/${image}` }, // Ruta relativa de la imagen
+                  ],
+                  sound: `assets/sounds/${sound}`, // Ruta relativa del sonido
                 }
+                
               ]
             });
           }, tiempoRestante);
@@ -112,7 +133,6 @@ export class PrinPage implements OnInit {
       }
     });
   }
-  
 
   handleRefresh(event: any) {
     setTimeout(() => {
